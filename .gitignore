@@ -1,0 +1,24 @@
+# WordPress core — not ours to version
+wp-admin/
+wp-includes/
+wp-*.php
+index.php
+xmlrpc.php
+license.txt
+readme.html
+wp-config.php
+
+# Uploads — too large, environment-specific
+wp-content/uploads/
+
+# Default themes — not custom
+wp-content/themes/twentytwenty*/
+
+# Plugins — install via WP Admin, not git
+wp-content/plugins/
+
+# Local dev
+.DS_Store
+Thumbs.db
+*.log
+.htaccess
