@@ -1,0 +1,85 @@
+<?php
+/*
+ * Template Name: Membership
+ */
+get_header(); ?>
+
+<main>
+    <section class="page-hero page-hero--membership">
+        <div class="page-hero__overlay"></div>
+        <div class="page-hero__content">
+            <h1>Become a Member</h1>
+            <p>Your entertainment destination — join the Hexham Bowling Club family today</p>
+        </div>
+    </section>
+
+    <section class="inner-section">
+        <div class="container">
+            <div class="membership-grid">
+                <div class="membership-content">
+                    <h2>Membership Categories</h2>
+                    <p class="section-intro">All members gain access to the Ossie Rewards Program and exclusive member benefits.</p>
+
+                    <div class="membership-table">
+                        <div class="membership-table__header">
+                            <span>Category</span>
+                            <span>Annual Fee</span>
+                        </div>
+                        <div class="membership-table__row">
+                            <span class="membership-category">Full Bowling Member</span>
+                            <span class="membership-price">$50.00</span>
+                        </div>
+                        <div class="membership-table__row">
+                            <span class="membership-category">Pensioner Bowling Member</span>
+                            <span class="membership-price">$40.00</span>
+                        </div>
+                        <div class="membership-table__row">
+                            <span class="membership-category">Non-Bowling Member</span>
+                            <span class="membership-price">$20.00</span>
+                        </div>
+                        <div class="membership-table__row">
+                            <span class="membership-category">Pensioner Non-Bowling</span>
+                            <span class="membership-price">$12.00</span>
+                        </div>
+                        <div class="membership-table__row">
+                            <span class="membership-category">Junior Member</span>
+                            <span class="membership-price">$12.00</span>
+                        </div>
+                        <div class="membership-table__row">
+                            <span class="membership-category">Social Member</span>
+                            <span class="membership-price">$5.00</span>
+                        </div>
+                        <div class="membership-table__row membership-table__row--highlight">
+                            <span class="membership-category">3-Year Membership</span>
+                            <span class="membership-price">$12.00</span>
+                        </div>
+                    </div>
+
+                    <div class="page-content" style="margin-top:2rem;">
+                        <?php while (have_posts()) : the_post(); the_content(); endwhile; ?>
+                    </div>
+                </div>
+
+                <aside class="membership-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Renew Online</h3>
+                        <p>Already a member? Renew your membership quickly online.</p>
+                        <a href="#" class="btn btn-primary">Renew Now</a>
+                    </div>
+                    <div class="sidebar-card">
+                        <h3>Download Form</h3>
+                        <p>Complete the membership form at home and bring it to reception.</p>
+                        <a href="#" class="btn btn-outline">Download Form</a>
+                    </div>
+                    <div class="sidebar-card">
+                        <h3>Questions?</h3>
+                        <p>Call us or visit reception at 290 Old Maitland Road, Hexham.</p>
+                        <a href="tel:0249648079" class="btn btn-outline">(02) 4964 8079</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+</main>
+
+<?php get_footer(); ?>

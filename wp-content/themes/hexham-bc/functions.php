@@ -32,18 +32,74 @@ function hexham_register_cpts() {
         'show_in_rest' => true,
     ]);
 
-    register_post_type('hbc_match', [
-        'labels' => [
-            'name'          => 'Matches',
-            'singular_name' => 'Match',
-            'add_new_item'  => 'Add New Match',
-        ],
-        'public'       => true,
-        'has_archive'  => true,
-        'menu_icon'    => 'dashicons-awards',
-        'supports'     => ['title', 'editor'],
-        'rewrite'      => ['slug' => 'matches'],
-        'show_in_rest' => true,
-    ]);
 }
 add_action('init', 'hexham_register_cpts');
+
+function hexham_register_acf_fields() {
+    if (! function_exists('acf_add_local_field_group')) return;
+
+    acf_add_local_field_group([
+        'key'    => 'group_hbc_event',
+        'title'  => 'Event Details',
+        'fields' => [
+            [
+                'key'           => 'field_event_date',
+                'label'         => 'Event Date',
+                'name'          => 'event_date',
+                'type'          => 'date_picker',
+                'display_format'=> 'd/m/Y',
+                'return_format' => 'Y-m-d',
+                'required'      => 1,
+            ],
+            [
+                'key'           => 'field_event_start_time',
+                'label'         => 'Start Time',
+                'name'          => 'event_start_time',
+                'type'          => 'time_picker',
+                'display_format'=> 'g:i a',
+                'return_format' => 'H:i',
+                'required'      => 1,
+            ],
+            [
+                'key'           => 'field_event_end_time',
+                'label'         => 'End Time',
+                'name'          => 'event_end_time',
+                'type'          => 'time_picker',
+                'display_format'=> 'g:i a',
+                'return_format' => 'H:i',
+            ],
+            [
+                'key'     => 'field_event_type',
+                'label'   => 'Event Type',
+                'name'    => 'event_type',
+                'type'    => 'select',
+                'choices' => [
+                    'live_music'  => 'Live Music',
+                    'raffle'      => 'Raffle',
+                    'promotion'   => 'Promotion',
+                    'bowls'       => 'Bowls',
+                    'other'       => 'Other',
+                ],
+                'default_value' => 'live_music',
+            ],
+            [
+                'key'   => 'field_event_featured',
+                'label' => 'Show on Homepage',
+                'name'  => 'event_featured',
+                'type'  => 'true_false',
+                'ui'    => 1,
+            ],
+        ],
+        'location' => [
+            [
+                [
+                    'param'    => 'post_type',
+                    'operator' => '==',
+                    'value'    => 'hbc_event',
+                ],
+            ],
+        ],
+    ]);
+
+}
+add_action('acf/init', 'hexham_register_acf_fields');
