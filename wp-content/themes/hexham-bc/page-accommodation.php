@@ -8,7 +8,7 @@ get_header(); ?>
     <section class="page-hero page-hero--accommodation">
         <div class="page-hero__overlay"></div>
         <div class="page-hero__content">
-            <h1>Member Accommodation</h1>
+            <h1>Accommodation</h1>
             <p>Club cottages at Harrington — a lovely coastal retreat for Hexham BC members</p>
         </div>
     </section>

@@ -12,7 +12,7 @@
                 <p>Weddings, conferences, birthdays and more</p>
             </a>
             <a href="/bowls" class="card">
-                <div class="card-icon">🎳</div>
+                <div class="card-icon card-icon--img"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/lawnbowls.png" alt="Lawn Bowls"></div>
                 <h3>Bowls</h3>
                 <p>Social and competitive bowls for all levels</p>
             </a>

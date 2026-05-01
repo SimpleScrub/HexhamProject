@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:hunterheadline.com.au)",
+      "WebFetch(domain:hexhambowlingclub.com.au)",
+      "WebSearch"
+    ]
+  }
+}

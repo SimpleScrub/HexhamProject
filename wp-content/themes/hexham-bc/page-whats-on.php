@@ -5,11 +5,24 @@
 get_header(); ?>
 
 <main>
-    <section class="page-hero">
-        <div class="page-hero__overlay"></div>
-        <div class="page-hero__content">
-            <h1>What's On</h1>
-            <p>Upcoming entertainment, events and activities at Hexham Bowling Club</p>
+    <section class="whats-on-hero">
+        <div class="hero-panels">
+            <a href="?type=live_music" class="hero-panel hero-panel--music">
+                <div class="hero-panel__overlay"></div>
+                <div class="hero-panel__label">Live Music</div>
+            </a>
+            <a href="?type=raffle" class="hero-panel hero-panel--raffles hero-panel--featured">
+                <div class="hero-panel__overlay"></div>
+                <div class="hero-panel__featured-content">
+                    <h1>What's On</h1>
+                    <p>Entertainment, events &amp; activities at Hexham Bowling Club</p>
+                </div>
+                <div class="hero-panel__label">Meat Trays &amp; Raffles</div>
+            </a>
+            <a href="?type=promotion" class="hero-panel hero-panel--promotions">
+                <div class="hero-panel__overlay"></div>
+                <div class="hero-panel__label">Promotions</div>
+            </a>
         </div>
     </section>
 

@@ -5,7 +5,7 @@
         <p>Dining, entertainment, bowls and functions in the heart of Hexham, NSW</p>
         <div class="hero-ctas">
             <a href="/whats-on" class="btn btn-primary">What's On</a>
-            <a href="/dining" class="btn btn-secondary">Book the Bistro</a>
+            <a href="/dining" class="btn btn-outline-white">Book the Bistro</a>
         </div>
     </div>
 </section>
