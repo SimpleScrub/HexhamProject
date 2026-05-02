@@ -46,6 +46,9 @@ get_header(); ?>
                     <p>A warm and respectful space to gather and remember</p>
                 </div>
             </div>
+            <div class="function-types__cta">
+                <a href="https://www.hexhamevents.com.au/" class="btn btn-primary" target="_blank" rel="noopener">Visit Hexham Events</a>
+            </div>
         </div>
     </section>
 
@@ -118,7 +121,7 @@ get_header(); ?>
             <h2>Wedding Packages</h2>
             <p>Customisable wedding reception packages available. Download our wedding package guide or contact us to discuss your requirements.</p>
             <div class="cta-contacts">
-                <a href="#" class="btn btn-primary">Download Wedding Package</a>
+                <a href="<?php echo esc_url(get_template_directory_uri() . '/assets/Hexham-Events-wedding-Package-2019.pdf'); ?>" class="btn btn-primary" target="_blank" rel="noopener">Download Wedding Package</a>
                 <a href="tel:0249648079" class="btn btn-outline">(02) 4964 8079</a>
                 <a href="mailto:events@hexhambc.com.au" class="btn btn-outline">events@hexhambc.com.au</a>
             </div>

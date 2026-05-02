@@ -95,7 +95,7 @@ get_header(); ?>
             <p>To make a booking or enquiry, email us directly. A conditions of hire document is available to download before your stay.</p>
             <div class="cta-contacts">
                 <a href="mailto:accommodation@hexhambc.com.au" class="btn btn-primary">accommodation@hexhambc.com.au</a>
-                <a href="#" class="btn btn-outline">Download Conditions of Hire</a>
+                <a href="https://hexhambowlingclub.com.au/wp-content/uploads/2017/09/Conditions-of-Hire-Harrington.pdf" class="btn btn-outline" target="_blank" rel="noopener">Download Conditions of Hire</a>
             </div>
             <p class="contact-barb">Available to members only. Contact the club office for eligibility queries: <a href="tel:0249648079">(02) 4964 8079</a></p>
         </div>

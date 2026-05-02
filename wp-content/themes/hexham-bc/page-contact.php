@@ -54,19 +54,6 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="contact-form">
-                    <h2>Send a Message</h2>
-                    <?php
-                    if ( function_exists( 'wpforms' ) ) {
-                        echo do_shortcode( '[wpforms id="YOUR_FORM_ID"]' );
-                    } else { ?>
-                        <div class="form-placeholder">
-                            <p>To send us a message, call or email us directly:</p>
-                            <p><a href="tel:0249648079" class="btn btn-primary">(02) 4964 8079</a></p>
-                            <p style="margin-top:1rem;"><a href="mailto:events@hexhambc.com.au" class="btn btn-outline">events@hexhambc.com.au</a></p>
-                        </div>
-                    <?php } ?>
-                </div>
             </div>
         </div>
     </section>

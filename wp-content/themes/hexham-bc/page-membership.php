@@ -18,7 +18,7 @@ get_header(); ?>
             <div class="membership-grid">
                 <div class="membership-content">
                     <h2>Membership Categories</h2>
-                    <p class="section-intro">All members gain access to the Ossie Rewards Program and exclusive member benefits.</p>
+                    <p class="section-intro">All members gain access to the Ozzie Rewards Program and exclusive member benefits.</p>
 
                     <div class="membership-table">
                         <div class="membership-table__header">
@@ -69,7 +69,7 @@ get_header(); ?>
                     <div class="sidebar-card">
                         <h3>Download Form</h3>
                         <p>Complete the membership form at home and bring it to reception.</p>
-                        <a href="#" class="btn btn-outline">Download Form</a>
+                        <a href="https://hexhambowlingclub.com.au/wp-content/uploads/2023/03/Hexham-Membership-Forms.pdf" class="btn btn-outline" target="_blank" rel="noopener">Download Form</a>
                     </div>
                     <div class="sidebar-card">
                         <h3>Questions?</h3>

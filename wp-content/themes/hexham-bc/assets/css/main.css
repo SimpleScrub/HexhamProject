@@ -379,6 +379,7 @@ a { color: inherit; text-decoration: none; }
 /* Function types */
 .function-types { padding: 2rem 0; background: var(--bg-light); }
 .function-types h2 { text-align: center; color: var(--green); font-size: 1.8rem; margin-bottom: 1.25rem; }
+.function-types__cta { text-align: center; margin-top: 2rem; }
 
 /* Room hire pricing table */
 .room-hire { padding: 2rem 0; }
@@ -520,12 +521,11 @@ a { color: inherit; text-decoration: none; }
 
 /* Contact */
 .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    align-items: start;
+    display: block;
+    max-width: 680px;
+    margin: 0 auto;
 }
-.contact-details h2, .contact-form h2 { color: var(--green); font-size: 1.5rem; margin-bottom: 1.5rem; }
+.contact-details h2 { color: var(--green); font-size: 1.5rem; margin-bottom: 1.5rem; }
 .contact-list { list-style: none; margin-bottom: 1.25rem; }
 .contact-list li {
     display: grid;
@@ -700,10 +700,12 @@ a { color: inherit; text-decoration: none; }
 .about-ossie { padding: 2.5rem 0; background: var(--green); color: var(--white); }
 .about-ossie__grid {
     display: grid;
-    grid-template-columns: 1fr 280px;
-    gap: 2.5rem;
-    align-items: start;
+    grid-template-columns: 300px 1fr 280px;
+    gap: 2rem;
+    align-items: center;
 }
+.about-ossie__image { text-align: left; padding-left: 0; }
+.about-ossie__image img { max-width: 100%; height: auto; max-height: 460px; object-fit: contain; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.5)); }
 .about-ossie__tag {
     display: inline-block;
     background: var(--gold);
@@ -763,6 +765,16 @@ a { color: inherit; text-decoration: none; }
 .pillar-card h3 { color: var(--green); font-size: 1.15rem; margin-bottom: 0.6rem; }
 .pillar-card p  { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
 
+/* Club Documents */
+.about-docs { padding: 2rem 0; background: var(--bg-light); }
+.about-docs h2 { color: var(--green); font-size: 1.6rem; margin-bottom: 1.25rem; }
+.docs-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.doc-item { display: flex; align-items: center; gap: 1rem; padding: 0.9rem 1.25rem; background: var(--white); border: 1px solid #e0e0e0; border-radius: 6px; text-decoration: none; color: var(--green-dark); transition: border-color 0.2s, box-shadow 0.2s; }
+.doc-item:hover { border-color: var(--gold); box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+.doc-item__icon { font-size: 1.2rem; flex-shrink: 0; }
+.doc-item__label { flex: 1; font-weight: 700; font-size: 0.95rem; }
+.doc-item__action { font-size: 0.8rem; color: var(--gold); font-weight: 700; white-space: nowrap; }
+
 .about-community { background: var(--white); }
 .about-cta { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #eee; text-align: center; }
 .about-cta h2 { color: var(--green); font-size: 1.6rem; margin-bottom: 0.75rem; }
@@ -770,6 +782,7 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 768px) {
     .about-ossie__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-ossie__image { max-width: 180px; margin: 0 auto; }
     .ossie-fact-card { grid-template-columns: 1fr 1fr; }
 }
 

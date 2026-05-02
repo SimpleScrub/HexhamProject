@@ -21,7 +21,7 @@ get_header(); ?>
                 <p>Open 7 days a week. Please contact the club to confirm availability on public holidays.</p>
                 <div class="dining-intro__ctas">
                     <a href="tel:0249648350" class="btn btn-primary">Book a Table — (02) 4964 8350</a>
-                    <a href="#" class="btn btn-outline">Download Menu (PDF)</a>
+                    <a href="https://hexhambowlingclub.com.au/wp-content/uploads/2025/12/Riverside-Bistro-Menu-Dec-2025.pdf" class="btn btn-outline" target="_blank" rel="noopener">Download Menu (PDF)</a>
                 </div>
             </div>
             <div class="page-content" style="margin-top:2rem;">
