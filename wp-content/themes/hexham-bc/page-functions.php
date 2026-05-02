@@ -13,13 +13,15 @@ get_header(); ?>
         </div>
     </section>
 
+    <?php while (have_posts()) : the_post(); if (get_the_content()) : ?>
     <section class="inner-section">
         <div class="container container--narrow">
             <div class="page-content">
-                <?php while (have_posts()) : the_post(); the_content(); endwhile; ?>
+                <?php the_content(); ?>
             </div>
         </div>
     </section>
+    <?php endif; endwhile; ?>
 
     <section class="function-types">
         <div class="container">
@@ -48,7 +50,10 @@ get_header(); ?>
             </div>
             <div class="function-types__cta">
                 <a href="https://www.hexhamevents.com.au/" class="btn btn-primary" target="_blank" rel="noopener">Visit Hexham Events</a>
+                <a href="<?php echo esc_url(get_template_directory_uri() . '/assets/Hexham-Events-wedding-Package-2019.pdf'); ?>" class="btn btn-outline" target="_blank" rel="noopener">Download Wedding Package</a>
+                <a href="mailto:events@hexhambc.com.au" class="btn btn-outline">events@hexhambc.com.au</a>
             </div>
+            <p class="contact-barb" style="text-align:center;">Ask for <strong>Barb</strong> for all functions enquiries &mdash; <a href="tel:0249648079">(02) 4964 8079</a></p>
         </div>
     </section>
 
@@ -116,18 +121,6 @@ get_header(); ?>
         </div>
     </section>
 
-    <section class="wedding-cta">
-        <div class="container container--narrow">
-            <h2>Wedding Packages</h2>
-            <p>Customisable wedding reception packages available. Download our wedding package guide or contact us to discuss your requirements.</p>
-            <div class="cta-contacts">
-                <a href="<?php echo esc_url(get_template_directory_uri() . '/assets/Hexham-Events-wedding-Package-2019.pdf'); ?>" class="btn btn-primary" target="_blank" rel="noopener">Download Wedding Package</a>
-                <a href="tel:0249648079" class="btn btn-outline">(02) 4964 8079</a>
-                <a href="mailto:events@hexhambc.com.au" class="btn btn-outline">events@hexhambc.com.au</a>
-            </div>
-            <p class="contact-barb">Ask for <strong>Barb</strong> for all functions enquiries</p>
-        </div>
-    </section>
 </main>
 
 <?php get_footer(); ?>

@@ -13,13 +13,15 @@ get_header(); ?>
         </div>
     </section>
 
+    <?php while (have_posts()) : the_post(); if (get_the_content()) : ?>
     <section class="inner-section">
         <div class="container container--narrow">
             <div class="page-content">
-                <?php while (have_posts()) : the_post(); the_content(); endwhile; ?>
+                <?php the_content(); ?>
             </div>
         </div>
     </section>
+    <?php endif; endwhile; ?>
 
     <section class="bowls-groups">
         <div class="container">
@@ -30,43 +32,47 @@ get_header(); ?>
                     <h3>Hexham Bowlers Club</h3>
                     <ul class="schedule-list">
                         <li>
-                            <strong>Thursday</strong>
-                            <span>Gala games — mixed draw, partner provided, lunch included</span>
+                            <strong>Thursday — Gala</strong>
+                            <span>10am (names in by 9am) — mixed draw, partner provided, lunch included</span>
                         </li>
                         <li>
-                            <strong>Saturday</strong>
-                            <span>Afternoon nominated 3's — weekly jackpot available</span>
+                            <strong>Saturday — Nominated 3's</strong>
+                            <span>12:30pm (names in by 10am) — weekly jackpot available</span>
+                        </li>
+                        <li>
+                            <strong>Mixed Games</strong>
+                            <span>1pm (names in by 10am) — draw for partners</span>
                         </li>
                         <li>
                             <strong>Pennant Season</strong>
-                            <span>N.D.B.A competitive pennant competition</span>
+                            <span>1pm — N.D.B.A competitive pennant competition</span>
                         </li>
                         <li>
-                            <strong>Easter</strong>
-                            <span>Annual Easter Bowls tournament</span>
+                            <strong>Easter Bowls</strong>
+                            <span>1pm (names in by 10am Saturday) — annual tournament</span>
                         </li>
                     </ul>
-                    <p class="dress-note">Dress: Bowls uniform required for pennant. Smart casual for social games.</p>
+                    <p class="dress-note">Dress: Bowls uniform required for Thursday, Saturday &amp; Pennant. Mufti for Mixed Games &amp; Easter.</p>
                 </div>
 
                 <div class="bowls-group-card">
                     <h3>Hexham Greys</h3>
                     <ul class="schedule-list">
                         <li>
-                            <strong>Sunday Morning</strong>
-                            <span>Casual draw-for-partner games — mufti (casual) dress welcome</span>
+                            <strong>Sunday</strong>
+                            <span>10am (names in by 9am) — draw for partner, mufti dress welcome</span>
                         </li>
                         <li>
                             <strong>Family Days</strong>
                             <span>Details announced throughout the season</span>
                         </li>
                     </ul>
-                    <p class="dress-note">Dress: Casual — no bowls uniform required.</p>
+                    <p class="dress-note">Dress: Mufti — no bowls uniform required.</p>
                 </div>
 
                 <div class="bowls-group-card bowls-group-card--full">
-                    <h3>Mixed Draw &amp; Social Bowls</h3>
-                    <p>Open mixed draw games run regularly throughout the season. New players and visiting bowlers from other clubs are warmly welcomed — no experience necessary.</p>
+                    <h3>New &amp; Visiting Bowlers</h3>
+                    <p>New players and visiting bowlers from other clubs are always welcome across all groups. No experience necessary — give us a call and come along.</p>
                     <a href="/membership" class="btn btn-outline">View Membership</a>
                 </div>
 
@@ -87,23 +93,27 @@ get_header(); ?>
                 'meta_query'     => [
                     'relation' => 'AND',
                     [
-                        'key'     => 'event_date',
-                        'value'   => date('Y-m-d'),
-                        'compare' => '>=',
-                        'type'    => 'DATE',
+                        'relation' => 'OR',
+                        [
+                            'key'     => 'event_date',
+                            'value'   => date('Y-m-d'),
+                            'compare' => '>=',
+                            'type'    => 'DATE',
+                        ],
+                        [
+                            'relation' => 'AND',
+                            ['key' => 'is_recurring', 'value' => '1', 'compare' => '='],
+                            ['key' => 'recurrence_end_date', 'value' => date('Y-m-d'), 'compare' => '>=', 'type' => 'DATE'],
+                        ],
                     ],
-                    [
-                        'key'     => 'event_type',
-                        'value'   => 'bowls',
-                        'compare' => '=',
-                    ],
+                    ['key' => 'event_type', 'value' => 'bowls', 'compare' => '='],
                 ],
             ]);
 
             if ($bowls_events->have_posts()) : ?>
                 <div class="events-archive-grid">
                     <?php while ($bowls_events->have_posts()) : $bowls_events->the_post();
-                        $date       = get_field('event_date');
+                        $date       = hbc_event_display_date(get_the_ID());
                         $start_time = get_field('event_start_time');
                         $end_time   = get_field('event_end_time');
                         $day        = $date ? date('j', strtotime($date)) : '';

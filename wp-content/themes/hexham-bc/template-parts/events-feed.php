@@ -9,11 +9,17 @@
             'orderby'        => 'meta_value',
             'order'          => 'ASC',
             'meta_query'     => [
+                'relation' => 'OR',
                 [
                     'key'     => 'event_date',
                     'value'   => date('Y-m-d'),
                     'compare' => '>=',
                     'type'    => 'DATE',
+                ],
+                [
+                    'relation' => 'AND',
+                    ['key' => 'is_recurring', 'value' => '1', 'compare' => '='],
+                    ['key' => 'recurrence_end_date', 'value' => date('Y-m-d'), 'compare' => '>=', 'type' => 'DATE'],
                 ],
             ],
         ]);
@@ -21,7 +27,7 @@
         if ($events->have_posts()) : ?>
             <div class="events-grid">
                 <?php while ($events->have_posts()) : $events->the_post();
-                    $date       = get_field('event_date');
+                    $date       = hbc_event_display_date(get_the_ID());
                     $start_time = get_field('event_start_time');
                     $end_time   = get_field('event_end_time');
                     $type       = get_field('event_type');

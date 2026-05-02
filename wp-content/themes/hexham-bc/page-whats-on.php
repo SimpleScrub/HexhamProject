@@ -37,7 +37,7 @@ get_header(); ?>
                     'raffle'     => 'Raffles',
                     'promotion'  => 'Promotions',
                     'bowls'      => 'Bowls',
-                    'other'      => 'Other',
+                    'other'      => 'Special Events',
                 ];
                 $active = isset($_GET['type']) ? sanitize_key($_GET['type']) : '';
                 foreach ($types as $val => $label) :
@@ -49,23 +49,26 @@ get_header(); ?>
             </div>
 
             <?php
-            $meta_query = [
+            $date_or_recurring = [
+                'relation' => 'OR',
                 [
                     'key'     => 'event_date',
                     'value'   => date('Y-m-d'),
                     'compare' => '>=',
                     'type'    => 'DATE',
                 ],
+                [
+                    'relation' => 'AND',
+                    ['key' => 'is_recurring', 'value' => '1', 'compare' => '='],
+                    ['key' => 'recurrence_end_date', 'value' => date('Y-m-d'), 'compare' => '>=', 'type' => 'DATE'],
+                ],
             ];
 
-            if ($active) {
-                $meta_query['relation'] = 'AND';
-                $meta_query[] = [
-                    'key'     => 'event_type',
-                    'value'   => $active,
-                    'compare' => '=',
-                ];
-            }
+            $meta_query = $active ? [
+                'relation' => 'AND',
+                $date_or_recurring,
+                ['key' => 'event_type', 'value' => $active, 'compare' => '='],
+            ] : $date_or_recurring;
 
             $events = new WP_Query([
                 'post_type'      => 'hbc_event',
@@ -80,7 +83,7 @@ get_header(); ?>
             <?php if ($events->have_posts()) : ?>
                 <div class="events-archive-grid">
                     <?php while ($events->have_posts()) : $events->the_post();
-                        $date        = get_field('event_date');
+                        $date        = hbc_event_display_date(get_the_ID());
                         $start_time  = get_field('event_start_time');
                         $end_time    = get_field('event_end_time');
                         $type        = get_field('event_type');
@@ -89,7 +92,7 @@ get_header(); ?>
                             'raffle'     => 'Raffle',
                             'promotion'  => 'Promotion',
                             'bowls'      => 'Bowls',
-                            'other'      => 'Other',
+                            'other'      => 'Special Events',
                         ];
                         $day        = $date ? date('j', strtotime($date)) : '';
                         $month      = $date ? date('M', strtotime($date)) : '';

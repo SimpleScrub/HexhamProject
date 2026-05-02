@@ -13,13 +13,15 @@ get_header(); ?>
         </div>
     </section>
 
+    <?php while (have_posts()) : the_post(); if (get_the_content()) : ?>
     <section class="inner-section">
         <div class="container container--narrow">
             <div class="page-content">
-                <?php while (have_posts()) : the_post(); the_content(); endwhile; ?>
+                <?php the_content(); ?>
             </div>
         </div>
     </section>
+    <?php endif; endwhile; ?>
 
     <section class="accom-overview">
         <div class="container">
