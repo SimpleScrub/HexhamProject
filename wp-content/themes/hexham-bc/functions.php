@@ -4,6 +4,7 @@ function hexham_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('html5', ['search-form', 'comment-form', 'gallery', 'caption']);
+    add_theme_support('site-icon');
 
     register_nav_menus([
         'primary' => __('Primary Menu', 'hexham-bc'),
@@ -246,26 +247,4 @@ function hbc_opt($key, $fallback = '') {
 function hbc_tel($field_name, $fallback = '') {
     $phone = hbc_opt($field_name, $fallback);
     return 'tel:' . preg_replace('/[^0-9+]/', '', $phone);
-}
-
-function hbc_recurring_meta_query(array $extra = []) {
-    $today = date('Y-m-d');
-    $query = [
-        'relation' => 'OR',
-        [
-            'key'     => 'event_date',
-            'value'   => $today,
-            'compare' => '>=',
-            'type'    => 'DATE',
-        ],
-        [
-            'relation' => 'AND',
-            ['key' => 'is_recurring', 'value' => '1', 'compare' => '='],
-            ['key' => 'recurrence_end_date', 'value' => $today, 'compare' => '>=', 'type' => 'DATE'],
-        ],
-    ];
-    foreach ($extra as $clause) {
-        $query[] = $clause;
-    }
-    return $query;
 }

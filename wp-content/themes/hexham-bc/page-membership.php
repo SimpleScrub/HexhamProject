@@ -8,8 +8,6 @@ get_header(); ?>
     <section class="page-hero page-hero--membership">
         <div class="page-hero__overlay"></div>
         <div class="page-hero__content">
-            <h1>Become a Member</h1>
-            <p>Your entertainment destination — join the Hexham Bowling Club family today</p>
         </div>
     </section>
 

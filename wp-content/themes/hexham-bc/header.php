@@ -6,14 +6,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <?php if (!has_site_icon()) : ?>
+    <link rel="icon" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png" type="image/png">
+    <?php endif; ?>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 
 <header class="site-header">
     <div class="topbar">
-        <span>Club: <a href="tel:0249648079">(02) 4964 8079</a></span>
-        <span>Bistro: <a href="tel:0249648350">(02) 4964 8350</a></span>
+        <span>Club: <a href="<?php echo esc_attr(hbc_tel('phone_main', '0249648079')); ?>"><?php echo esc_html(hbc_opt('phone_main', '(02) 4964 8079')); ?></a></span>
+        <span>Bistro: <a href="<?php echo esc_attr(hbc_tel('phone_bistro', '0249648350')); ?>"><?php echo esc_html(hbc_opt('phone_bistro', '(02) 4964 8350')); ?></a></span>
     </div>
 
     <div class="header-main">
