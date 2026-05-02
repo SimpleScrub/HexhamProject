@@ -47,12 +47,8 @@ get_header(); ?>
                             <strong>Pennant Season</strong>
                             <span>1pm — N.D.B.A competitive pennant competition</span>
                         </li>
-                        <li>
-                            <strong>Easter Bowls</strong>
-                            <span>1pm (names in by 10am Saturday) — annual tournament</span>
-                        </li>
                     </ul>
-                    <p class="dress-note">Dress: Bowls uniform required for Thursday, Saturday &amp; Pennant. Mufti for Mixed Games &amp; Easter.</p>
+                    <p class="dress-note">Dress: Bowls uniform required for Thursday, Saturday &amp; Pennant. Mufti for Mixed Games.</p>
                 </div>
 
                 <div class="bowls-group-card">
