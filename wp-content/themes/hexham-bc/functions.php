@@ -164,6 +164,90 @@ function hbc_event_display_date($post_id) {
     return $date;
 }
 
+function hexham_register_options() {
+    if (! function_exists('acf_add_options_page')) return;
+    acf_add_options_page([
+        'page_title' => 'Site Settings',
+        'menu_title' => 'Site Settings',
+        'menu_slug'  => 'hexham-site-settings',
+        'capability' => 'manage_options',
+        'icon_url'   => 'dashicons-admin-settings',
+        'position'   => 3,
+    ]);
+}
+add_action('acf/init', 'hexham_register_options');
+
+function hexham_register_options_fields() {
+    if (! function_exists('acf_add_local_field_group')) return;
+    acf_add_local_field_group([
+        'key'    => 'group_hbc_options',
+        'title'  => 'Site Settings',
+        'fields' => [
+
+            // ── Contact Details ──────────────────────────────────────
+            ['key' => 'field_tab_contact', 'label' => 'Contact Details', 'type' => 'tab', 'placement' => 'top'],
+            ['key' => 'field_phone_main',    'label' => 'Club Phone',    'name' => 'phone_main',    'type' => 'text',  'default_value' => '(02) 4964 8079', 'instructions' => 'Display format, e.g. (02) 4964 8079'],
+            ['key' => 'field_phone_bistro',  'label' => 'Bistro Phone',  'name' => 'phone_bistro',  'type' => 'text',  'default_value' => '(02) 4964 8350'],
+            ['key' => 'field_email_general', 'label' => 'General Email', 'name' => 'email_general', 'type' => 'email', 'default_value' => 'info@hexhambc.com.au'],
+            ['key' => 'field_email_events',  'label' => 'Events/Functions Email', 'name' => 'email_events', 'type' => 'email', 'default_value' => 'events@hexhambc.com.au'],
+            ['key' => 'field_email_accom',   'label' => 'Accommodation Email',    'name' => 'email_accom',  'type' => 'email', 'default_value' => 'accommodation@hexhambc.com.au'],
+            ['key' => 'field_address_street', 'label' => 'Street Address', 'name' => 'address_street', 'type' => 'text', 'default_value' => '290 Old Maitland Road'],
+            ['key' => 'field_address_suburb', 'label' => 'Suburb',  'name' => 'address_suburb', 'type' => 'text', 'default_value' => 'Hexham NSW 2322'],
+
+            // ── Membership ───────────────────────────────────────────
+            ['key' => 'field_tab_membership', 'label' => 'Membership', 'type' => 'tab', 'placement' => 'top'],
+            ['key' => 'field_mbr_renew_url', 'label' => 'Renewal Form URL', 'name' => 'mbr_renew_url', 'type' => 'url',
+             'instructions' => 'Link for the Renew Now button. Update once online form is live.',
+             'default_value' => 'https://hexhambowlingclub.com.au/membership-purchase/'],
+            ['key' => 'field_mbr_full',         'label' => 'Full Bowling Member',    'name' => 'mbr_full',         'type' => 'text', 'default_value' => '$50.00'],
+            ['key' => 'field_mbr_pensioner',     'label' => 'Pensioner Bowling Member', 'name' => 'mbr_pensioner', 'type' => 'text', 'default_value' => '$40.00'],
+            ['key' => 'field_mbr_non_bowling',   'label' => 'Non-Bowling Member',    'name' => 'mbr_non_bowling',  'type' => 'text', 'default_value' => '$20.00'],
+            ['key' => 'field_mbr_pensioner_non', 'label' => 'Pensioner Non-Bowling', 'name' => 'mbr_pensioner_non','type' => 'text', 'default_value' => '$12.00'],
+            ['key' => 'field_mbr_junior',        'label' => 'Junior Member',         'name' => 'mbr_junior',       'type' => 'text', 'default_value' => '$12.00'],
+            ['key' => 'field_mbr_social',        'label' => 'Social Member',         'name' => 'mbr_social',       'type' => 'text', 'default_value' => '$5.00'],
+            ['key' => 'field_mbr_three_year',    'label' => '3-Year Membership',     'name' => 'mbr_three_year',   'type' => 'text', 'default_value' => '$12.00'],
+
+            // ── Room Hire ────────────────────────────────────────────
+            ['key' => 'field_tab_rooms', 'label' => 'Room Hire', 'type' => 'tab', 'placement' => 'top'],
+            ['key' => 'field_room_board_cap',       'label' => 'Board Room — Capacity', 'name' => 'room_board_cap',       'type' => 'text', 'default_value' => 'Up to 10'],
+            ['key' => 'field_room_board_half',      'label' => 'Board Room — Half Day', 'name' => 'room_board_half',      'type' => 'text', 'default_value' => '$70'],
+            ['key' => 'field_room_board_full',      'label' => 'Board Room — Full Day', 'name' => 'room_board_full',      'type' => 'text', 'default_value' => '$120'],
+            ['key' => 'field_room_heritage_cap',    'label' => 'Heritage Room — Capacity', 'name' => 'room_heritage_cap', 'type' => 'text', 'default_value' => 'Up to 50'],
+            ['key' => 'field_room_heritage_half',   'label' => 'Heritage Room — Half Day', 'name' => 'room_heritage_half','type' => 'text', 'default_value' => '$100'],
+            ['key' => 'field_room_heritage_full',   'label' => 'Heritage Room — Full Day', 'name' => 'room_heritage_full','type' => 'text', 'default_value' => '$180'],
+            ['key' => 'field_room_audit_cap',       'label' => 'Auditorium — Capacity', 'name' => 'room_audit_cap',       'type' => 'text', 'default_value' => 'Up to 200'],
+            ['key' => 'field_room_audit_half',      'label' => 'Auditorium — Half Day', 'name' => 'room_audit_half',      'type' => 'text', 'default_value' => '$150'],
+            ['key' => 'field_room_audit_full',      'label' => 'Auditorium — Full Day', 'name' => 'room_audit_full',      'type' => 'text', 'default_value' => '$250'],
+            ['key' => 'field_room_wedding_cap',     'label' => 'Wedding Auditorium — Capacity', 'name' => 'room_wedding_cap',  'type' => 'text', 'default_value' => 'Up to 300'],
+            ['key' => 'field_room_wedding_hire',    'label' => 'Wedding Auditorium — Hire',     'name' => 'room_wedding_hire', 'type' => 'text', 'default_value' => '$400 hire'],
+
+            // ── Accommodation ────────────────────────────────────────
+            ['key' => 'field_tab_accom', 'label' => 'Accommodation', 'type' => 'tab', 'placement' => 'top'],
+            ['key' => 'field_accom_peak_start',      'label' => 'Peak Season Start',           'name' => 'accom_peak_start',      'type' => 'text', 'default_value' => 'Nov 1'],
+            ['key' => 'field_accom_peak_end',        'label' => 'Peak Season End',             'name' => 'accom_peak_end',        'type' => 'text', 'default_value' => 'Apr 30'],
+            ['key' => 'field_accom_active_peak',     'label' => 'Active Member — Peak',        'name' => 'accom_active_peak',     'type' => 'text', 'default_value' => '$550 / week'],
+            ['key' => 'field_accom_active_offpeak',  'label' => 'Active Member — Off-Peak',    'name' => 'accom_active_offpeak',  'type' => 'text', 'default_value' => '$425 / week'],
+            ['key' => 'field_accom_nonactive_peak',  'label' => 'Non-Active Member — Peak',    'name' => 'accom_nonactive_peak',  'type' => 'text', 'default_value' => '$650 / week'],
+            ['key' => 'field_accom_nonactive_offpeak','label' => 'Non-Active Member — Off-Peak','name' => 'accom_nonactive_offpeak','type' => 'text', 'default_value' => '$525 / week'],
+        ],
+        'location' => [
+            [['param' => 'options_page', 'operator' => '==', 'value' => 'hexham-site-settings']],
+        ],
+    ]);
+}
+add_action('acf/init', 'hexham_register_options_fields');
+
+function hbc_opt($key, $fallback = '') {
+    if (! function_exists('get_field')) return $fallback;
+    $val = get_field($key, 'option');
+    return ($val !== '' && $val !== null && $val !== false) ? $val : $fallback;
+}
+
+function hbc_tel($field_name, $fallback = '') {
+    $phone = hbc_opt($field_name, $fallback);
+    return 'tel:' . preg_replace('/[^0-9+]/', '', $phone);
+}
+
 function hbc_recurring_meta_query(array $extra = []) {
     $today = date('Y-m-d');
     $query = [

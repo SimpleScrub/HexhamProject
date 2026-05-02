@@ -73,18 +73,18 @@ get_header(); ?>
             <div class="pricing-table">
                 <div class="pricing-table__header">
                     <span>Member Type</span>
-                    <span>Peak Season <small>(Nov 1 – Apr 30)</small></span>
+                    <span>Peak Season <small>(<?php echo esc_html(hbc_opt('accom_peak_start', 'Nov 1')); ?> – <?php echo esc_html(hbc_opt('accom_peak_end', 'Apr 30')); ?>)</small></span>
                     <span>Off-Peak Season</span>
                 </div>
                 <div class="pricing-table__row">
                     <span class="room-name">Active Member</span>
-                    <span>$550 / week</span>
-                    <span>$425 / week</span>
+                    <span><?php echo esc_html(hbc_opt('accom_active_peak', '$550 / week')); ?></span>
+                    <span><?php echo esc_html(hbc_opt('accom_active_offpeak', '$425 / week')); ?></span>
                 </div>
                 <div class="pricing-table__row">
                     <span class="room-name">Non-Active Member</span>
-                    <span>$650 / week</span>
-                    <span>$525 / week</span>
+                    <span><?php echo esc_html(hbc_opt('accom_nonactive_peak', '$650 / week')); ?></span>
+                    <span><?php echo esc_html(hbc_opt('accom_nonactive_offpeak', '$525 / week')); ?></span>
                 </div>
             </div>
             <p class="pricing-note">Non-active member rates are $100 per week above active member rates.</p>
@@ -96,10 +96,10 @@ get_header(); ?>
             <h2>Book a Cottage</h2>
             <p>To make a booking or enquiry, email us directly. A conditions of hire document is available to download before your stay.</p>
             <div class="cta-contacts">
-                <a href="mailto:accommodation@hexhambc.com.au" class="btn btn-primary">accommodation@hexhambc.com.au</a>
+                <a href="mailto:<?php echo esc_attr(hbc_opt('email_accom', 'accommodation@hexhambc.com.au')); ?>" class="btn btn-primary"><?php echo esc_html(hbc_opt('email_accom', 'accommodation@hexhambc.com.au')); ?></a>
                 <a href="https://hexhambowlingclub.com.au/wp-content/uploads/2017/09/Conditions-of-Hire-Harrington.pdf" class="btn btn-outline" target="_blank" rel="noopener">Download Conditions of Hire</a>
             </div>
-            <p class="contact-barb">Available to members only. Contact the club office for eligibility queries: <a href="tel:0249648079">(02) 4964 8079</a></p>
+            <p class="contact-barb">Available to members only. Contact the club office for eligibility queries: <a href="<?php echo esc_attr(hbc_tel('phone_main', '0249648079')); ?>"><?php echo esc_html(hbc_opt('phone_main', '(02) 4964 8079')); ?></a></p>
         </div>
     </section>
 </main>

@@ -3,13 +3,13 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h3>Hexham Bowling Club</h3>
-                <p>290 Old Maitland Road<br>Hexham NSW 2322</p>
+                <p><?php echo esc_html(hbc_opt('address_street', '290 Old Maitland Road')); ?><br><?php echo esc_html(hbc_opt('address_suburb', 'Hexham NSW 2322')); ?></p>
             </div>
             <div class="footer-col">
                 <h3>Contact</h3>
-                <p>Club: <a href="tel:0249648079">(02) 4964 8079</a></p>
-                <p>Bistro: <a href="tel:0249648350">(02) 4964 8350</a></p>
-                <p>Functions: <a href="mailto:events@hexhambc.com.au">events@hexhambc.com.au</a></p>
+                <p>Club: <a href="<?php echo esc_attr(hbc_tel('phone_main', '0249648079')); ?>"><?php echo esc_html(hbc_opt('phone_main', '(02) 4964 8079')); ?></a></p>
+                <p>Bistro: <a href="<?php echo esc_attr(hbc_tel('phone_bistro', '0249648350')); ?>"><?php echo esc_html(hbc_opt('phone_bistro', '(02) 4964 8350')); ?></a></p>
+                <p>Functions: <a href="mailto:<?php echo esc_attr(hbc_opt('email_events', 'events@hexhambc.com.au')); ?>"><?php echo esc_html(hbc_opt('email_events', 'events@hexhambc.com.au')); ?></a></p>
             </div>
             <div class="footer-col">
                 <h3>Quick Links</h3>

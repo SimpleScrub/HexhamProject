@@ -51,9 +51,9 @@ get_header(); ?>
             <div class="function-types__cta">
                 <a href="https://www.hexhamevents.com.au/" class="btn btn-primary" target="_blank" rel="noopener">Visit Hexham Events</a>
                 <a href="<?php echo esc_url(get_template_directory_uri() . '/assets/Hexham-Events-wedding-Package-2019.pdf'); ?>" class="btn btn-outline" target="_blank" rel="noopener">Download Wedding Package</a>
-                <a href="mailto:events@hexhambc.com.au" class="btn btn-outline">events@hexhambc.com.au</a>
+                <a href="mailto:<?php echo esc_attr(hbc_opt('email_events', 'events@hexhambc.com.au')); ?>" class="btn btn-outline"><?php echo esc_html(hbc_opt('email_events', 'events@hexhambc.com.au')); ?></a>
             </div>
-            <p class="contact-barb" style="text-align:center;">Ask for <strong>Barb</strong> for all functions enquiries &mdash; <a href="tel:0249648079">(02) 4964 8079</a></p>
+            <p class="contact-barb" style="text-align:center;">Ask for <strong>Barb</strong> for all functions enquiries &mdash; <a href="<?php echo esc_attr(hbc_tel('phone_main', '0249648079')); ?>"><?php echo esc_html(hbc_opt('phone_main', '(02) 4964 8079')); ?></a></p>
         </div>
     </section>
 
@@ -70,26 +70,26 @@ get_header(); ?>
                 </div>
                 <div class="pricing-table__row">
                     <span class="room-name">Board Room</span>
-                    <span>Up to 10</span>
-                    <span>$70</span>
-                    <span>$120</span>
+                    <span><?php echo esc_html(hbc_opt('room_board_cap', 'Up to 10')); ?></span>
+                    <span><?php echo esc_html(hbc_opt('room_board_half', '$70')); ?></span>
+                    <span><?php echo esc_html(hbc_opt('room_board_full', '$120')); ?></span>
                 </div>
                 <div class="pricing-table__row">
                     <span class="room-name">Heritage Room</span>
-                    <span>Up to 50</span>
-                    <span>$100</span>
-                    <span>$180</span>
+                    <span><?php echo esc_html(hbc_opt('room_heritage_cap', 'Up to 50')); ?></span>
+                    <span><?php echo esc_html(hbc_opt('room_heritage_half', '$100')); ?></span>
+                    <span><?php echo esc_html(hbc_opt('room_heritage_full', '$180')); ?></span>
                 </div>
                 <div class="pricing-table__row">
                     <span class="room-name">Auditorium</span>
-                    <span>Up to 200</span>
-                    <span>$150</span>
-                    <span>$250</span>
+                    <span><?php echo esc_html(hbc_opt('room_audit_cap', 'Up to 200')); ?></span>
+                    <span><?php echo esc_html(hbc_opt('room_audit_half', '$150')); ?></span>
+                    <span><?php echo esc_html(hbc_opt('room_audit_full', '$250')); ?></span>
                 </div>
                 <div class="pricing-table__row pricing-table__row--highlight">
                     <span class="room-name">Wedding Auditorium</span>
-                    <span>Up to 300</span>
-                    <span colspan="2">$400 hire</span>
+                    <span><?php echo esc_html(hbc_opt('room_wedding_cap', 'Up to 300')); ?></span>
+                    <span colspan="2"><?php echo esc_html(hbc_opt('room_wedding_hire', '$400 hire')); ?></span>
                 </div>
             </div>
         </div>

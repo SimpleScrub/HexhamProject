@@ -27,31 +27,31 @@ get_header(); ?>
                         </div>
                         <div class="membership-table__row">
                             <span class="membership-category">Full Bowling Member</span>
-                            <span class="membership-price">$50.00</span>
+                            <span class="membership-price"><?php echo esc_html(hbc_opt('mbr_full', '$50.00')); ?></span>
                         </div>
                         <div class="membership-table__row">
                             <span class="membership-category">Pensioner Bowling Member</span>
-                            <span class="membership-price">$40.00</span>
+                            <span class="membership-price"><?php echo esc_html(hbc_opt('mbr_pensioner', '$40.00')); ?></span>
                         </div>
                         <div class="membership-table__row">
                             <span class="membership-category">Non-Bowling Member</span>
-                            <span class="membership-price">$20.00</span>
+                            <span class="membership-price"><?php echo esc_html(hbc_opt('mbr_non_bowling', '$20.00')); ?></span>
                         </div>
                         <div class="membership-table__row">
                             <span class="membership-category">Pensioner Non-Bowling</span>
-                            <span class="membership-price">$12.00</span>
+                            <span class="membership-price"><?php echo esc_html(hbc_opt('mbr_pensioner_non', '$12.00')); ?></span>
                         </div>
                         <div class="membership-table__row">
                             <span class="membership-category">Junior Member</span>
-                            <span class="membership-price">$12.00</span>
+                            <span class="membership-price"><?php echo esc_html(hbc_opt('mbr_junior', '$12.00')); ?></span>
                         </div>
                         <div class="membership-table__row">
                             <span class="membership-category">Social Member</span>
-                            <span class="membership-price">$5.00</span>
+                            <span class="membership-price"><?php echo esc_html(hbc_opt('mbr_social', '$5.00')); ?></span>
                         </div>
                         <div class="membership-table__row membership-table__row--highlight">
                             <span class="membership-category">3-Year Membership</span>
-                            <span class="membership-price">$12.00</span>
+                            <span class="membership-price"><?php echo esc_html(hbc_opt('mbr_three_year', '$12.00')); ?></span>
                         </div>
                     </div>
 
@@ -64,7 +64,7 @@ get_header(); ?>
                     <div class="sidebar-card">
                         <h3>Renew Online</h3>
                         <p>Already a member? Renew your membership quickly online.</p>
-                        <a href="#" class="btn btn-primary">Renew Now</a>
+                        <a href="<?php echo esc_url(hbc_opt('mbr_renew_url', 'https://hexhambowlingclub.com.au/membership-purchase/')); ?>" class="btn btn-primary" target="_blank" rel="noopener">Renew Now</a>
                     </div>
                     <div class="sidebar-card">
                         <h3>Download Form</h3>
@@ -74,7 +74,7 @@ get_header(); ?>
                     <div class="sidebar-card">
                         <h3>Questions?</h3>
                         <p>Call us or visit reception at 290 Old Maitland Road, Hexham.</p>
-                        <a href="tel:0249648079" class="btn btn-outline">(02) 4964 8079</a>
+                        <a href="<?php echo esc_attr(hbc_tel('phone_main', '0249648079')); ?>" class="btn btn-outline"><?php echo esc_html(hbc_opt('phone_main', '(02) 4964 8079')); ?></a>
                     </div>
                 </aside>
             </div>

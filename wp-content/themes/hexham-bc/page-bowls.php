@@ -148,7 +148,7 @@ get_header(); ?>
             <h2>Get Involved</h2>
             <p>New to lawn bowls or looking to join a club? Give us a call — all skill levels welcome.</p>
             <div class="cta-contacts">
-                <a href="tel:0249648079" class="btn btn-primary">(02) 4964 8079</a>
+                <a href="<?php echo esc_attr(hbc_tel('phone_main', '0249648079')); ?>" class="btn btn-primary"><?php echo esc_html(hbc_opt('phone_main', '(02) 4964 8079')); ?></a>
                 <a href="/membership" class="btn btn-outline">View Membership</a>
             </div>
         </div>
